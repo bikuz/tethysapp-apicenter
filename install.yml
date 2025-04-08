@@ -12,13 +12,13 @@ requirements:
     channels:
     - conda-forge
     packages:
-    # - psycopg2
-    # - numpy
-    # - netCDF4
-    # - shapely
-    # - gdal
-    # - rasterio
-    # - rasterstats
+    - psycopg2
+    - numpy
+    - netCDF4
+    - shapely
+    - gdal
+    - rasterio
+    - rasterstats
 
   pip:
 
