@@ -1,0 +1,106 @@
+{% extends "apicenter/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block header_buttons %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block app_content %}
+
+    <div class="real-content">
+        <!-- Content here -->
+        <div class="">
+            <h2>Get Historic Data (from 1980 - )</h2>
+            <table class="table">
+                <tr>
+                    <th>API Link</th>
+                    <td><a href="http://tethys.icimod.org/apps/apicenter/api/getHistoric/">http://tethys.icimod.org/apps/apicenter/api/getHistoric/</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Method</th>
+                    <td>GET</td>
+                </tr>
+
+            </table>
+            <div>
+                <p>Parameters with description </p>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Parameters</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">comid</th>
+                        <td>The identifier for the stream reach.</td>
+                        <td>1256</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">cty</th>
+                        <td>Name of the country in small letter (nepal, bhutan or bangladesh)</td>
+                        <td>nepal</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><b><span class="text-success">Example to access JSON format (Python programming)</span></b></p>
+
+            <pre class="prettyprint">
+import requests
+request_params = dict(cty='nepal', comid=5)
+request_headers = dict(Authorization='Token asdfqwer1234')
+res = requests.get('http://tethys.icimod.org/apps/apicenter/api/getHistoric/', params=request_params, headers=request_headers)
+</pre>
+
+            <p><b><span class="text-success">Example to access CSV format (Python programming)</span></b></p>
+
+            <pre class="prettyprint">
+import requests
+request_params = dict(cty='nepal', comid=5)
+request_headers = dict(Authorization='Token asdfqwer1234')
+res = requests.get('http://tethys.icimod.org/apps/apicenter/api/getHistoricCSV/', params=request_params, headers=request_headers)
+</pre>
+        </div>
+
+
+    </div>
+
+    {#    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static 'apicenter/css/prettystyles.css' %}" rel="stylesheet">
+    {#    <link href="{% static 'apicenter/css/ECMWF_API_Service_mystyle.css' %}" rel="stylesheet">#}
+    <style>
+
+        p {
+            font-size: 17px;
+            text-align: justify;
+        }
+
+        h2 {
+            color: #00749a;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            border-top: 0px solid #ddd;
+        }
+    </style>
+
+
+    <script src="{% static 'apicenter/js/prettify.js' %}"></script>
+
+    <script>
+        $(function () {
+            prettyPrint();
+            $(".nav-li").eq(8).addClass('active-nav-li');
+            $("#ecmwfId").addClass('in');
+        });
+    </script>
+{% endblock %}
+
+

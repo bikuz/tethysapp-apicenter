@@ -1,0 +1,25 @@
+{% extends "apicenter/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block header_buttons %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block app_content %}
+
+    <div class="">
+        <h2>Purpose</h2>
+        <p>
+            The main purpose of developing the API services is to provide timely and updated data/information to the
+            users without original data duplication. Users can then re-combine the API dataset with another dataset and
+            create the effective application on various platforms as needed.
+
+        </p>
+    </div>
+    <link href="{% static 'apicenter/css/purpose.css' %}" rel="stylesheet">
+    <script src="{% static 'apicenter/js/purpose.js' %}"></script>
+{% endblock %}
+
+

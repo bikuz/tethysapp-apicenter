@@ -1,0 +1,55 @@
+{% extends "apicenter/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block header_buttons %}
+    {{ block.super }}
+{% endblock %}
+
+{% block app_content %}
+
+    <div class="">
+        <h2>Registration</h2>
+        <p>
+            Registration is the first step a user must do to access the API services. With registration the user will
+            get a token which is then used to access the data from the system.
+        </p>
+        <p>Following are the steps to register to the system.
+        </p>
+        <ol class="style-list">
+            <li>Go to the ICIMOD Tethys page <a href="http://tethys.icimod.org/">http://tethys.icimod.org/</a>
+                and click on the “<a href="http://tethys.icimod.org/accounts/register/">Sign Up</a>” button if not
+                registered.
+            </li>
+            <li>Fill the form on the “Sign Up” page. It requires all the parameters like
+                <ol type="a">
+                    <li>User Name (Need to login later)</li>
+                    <li>Email Address</li>
+                    <li>Password (Need to login later)</li>
+                    <li>CAPTCHA</li>
+                </ol>
+            </li>
+            <li>Once logged in, your name will be listed at the top-right portion of the page. In picture, the user is
+                dummy user is registered as “test”. Next to the name there is “User Menu v”.
+
+            </li>
+            <li>On click on the user menu, a drop down page appears. Click on the “User Settings”</li>
+            <li>The page will show new form to enter Full Name of the user (if not provided before).
+                <ol type="a">
+                    <li>Fill the form and click on save button below.</li>
+                </ol>
+            </li>
+            <li>The Token will appear under the heading API Key, Please put this key in the safe place, as we will be
+                using the key to user API service and get the data.
+
+                <img class="registration-image-token" src="{% static 'apicenter/images/testUserProfile.png' %}">
+
+                <p class="note-screen-cap">Note: Don’t try to use the token from the above picture. The user “test” has been deleted from the
+                    system. </p>
+            </li>
+        </ol>
+
+    </div>
+    <link href="{% static 'apicenter/css/registration.css' %}" rel="stylesheet">
+    <script src="{% static 'apicenter/js/registration.js' %}"></script>
+{% endblock %}

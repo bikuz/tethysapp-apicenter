@@ -1,0 +1,68 @@
+{% extends "apicenter/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block header_buttons %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block app_content %}
+
+    <div class="real-content">
+        <div class="">
+            <h2>Get ID of the Stream</h2>
+            <p>The first step before running the API service is know the proper COMID of the stream network. Each stream
+                network is segmented into small catchments. Then the comid (id) is then provided to each of these
+                catchments. In order to get the comid, user can do following steps.</p>
+            <ol class="style-list">
+                <li>Go to the Tethys web-site <a href="http://tethys.icimod.org/apps/hiwatnepal/">http://tethys.icimod.org/apps/hiwatnepal/</a>
+                    (Nepal) or
+                    <a href="http://tethys.icimod.org/apps/hiwatbangladesh/">http://tethys.icimod.org/apps/hiwatbangladesh/</a>
+                    (Bangladesh).
+                </li>
+                <li>Zoom the map to your area of interest (AOI) and click on the stream line of your choice.</li>
+                <li>A new window will pop-up on Forecast. At the title of this window, there will be the stream/river ID
+                    of that selected stream.
+                </li>
+                <li>Note that ID, we will be using this ID to query the database through API services.</li>
+            </ol>
+        </div>
+    </div>
+
+    {#    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static 'apicenter/css/prettystyles.css' %}" rel="stylesheet">
+    {#    <link href="{% static 'apicenter/css/ECMWF_API_Service_mystyle.css' %}" rel="stylesheet">#}
+    <style>
+        p {
+            font-size: 17px;
+            text-align: justify;
+        }
+
+        h2, h3 {
+            color: #00749a;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            border-top: 0px solid #ddd;
+        }
+
+        .style-list li {
+            font-family: "Avenir Next", Arial, sans-serif;
+            padding-bottom: 10px;
+            color: #666;
+            font-size: 15px;
+        }
+    </style>
+
+
+    <script src="{% static 'apicenter/js/prettify.js' %}"></script>
+
+    <script>
+        $(function () {
+            prettyPrint();
+            $(".nav-li").eq(3).addClass('active-nav-li');
+            $("#hiwatapiId").addClass('in');
+        });
+    </script>
+{% endblock %}

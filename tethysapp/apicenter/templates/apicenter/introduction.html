@@ -1,0 +1,34 @@
+{% extends "apicenter/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block header_buttons %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block app_content %}
+
+    <div class="">
+    <h2>Introduction</h2>
+        <p>
+            Application Programming Interfaces (API) are another channel in the area of online data/information
+            dissemination services. API is the main backend information sources for many of the modern applications.
+            These applications can range from the traditional websites to the dynamic mobile applications and decision
+            support system (DSS) tools. The information disseminated through the API can be re-used and re-combined by
+            the partners in their own creative way without duplicating then main data source. So, API services are
+            becoming increasingly important in the digital arena.
+
+        </p>
+        <p>Understanding the importance of the API services and also driven by the users request, SERVIR has developed
+            API services for various hydrological applications. These services allow the users to access these data like
+            forecast on stream-flow, historic stream flow-dataset and other information through any programing language,
+            which then can be used re-used as required by individual institutes. Using these services, the user always
+            gets updated forecast information on stream network of HKH region.
+        </p>
+    </div>
+       <link href="{% static 'apicenter/css/introduction.css' %}" rel="stylesheet">
+        <script src="{% static 'apicenter/js/Introduction.js' %}"></script>
+{% endblock %}
+
+
